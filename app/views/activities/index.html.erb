@@ -1,0 +1,13 @@
+<h1>Nos activités</h1>
+
+<%= link_to "Proposez une nouvelle activité", "/activités/new" %>
+
+<% @activities.each do |activity| %>
+    <div class="card-product">
+        <img src="<%= activity.image %>" />
+        <div class="card-product-infos">
+            <h2><%= activity.title %></h2>
+            <p><%= activity.description %></p>
+        </div>
+    </div>
+<% end %>
