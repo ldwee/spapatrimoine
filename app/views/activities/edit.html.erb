@@ -1,0 +1,9 @@
+<h2>traiter une activité</h2>
+<%= simple_form_for @activity do |f| %>
+    <%= f.input :title, label: 'Titre' %>
+    <%= f.input :description %>
+    <%= f.input :date %>
+    <%= f.input :image %>
+    <%= f.input :status, collection: ["en attente", "acceptée", "refusée"] %> 
+    <%= f.submit 'Soumettre' %>
+<% end %>
