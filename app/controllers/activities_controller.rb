@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :new, :create]
- 
+
   def index
     @activities = Activity.where(status:"acceptée")
   end
@@ -8,11 +8,11 @@ class ActivitiesController < ApplicationController
   def new
     @activity = Activity.new
   end
-  
+
   def create
-    activity = Activity.new(activity_params)
-    activity.status = "attente"
-    if activity.save
+    @activity = Activity.new(activity_params)
+    @activity.status = "attente"
+    if @activity.save
       flash[:notice] = 'Votre proposition est bien reçue, merci beaucoup.  Nous revenons vers vous pour une suite'
       redirect_to activities_path
     else
