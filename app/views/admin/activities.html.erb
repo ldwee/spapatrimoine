@@ -1,0 +1,52 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">En attente</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="accepted-tab" data-toggle="tab" href="#accepted" role="tab" aria-controls="accepted" aria-selected="false">Acceptées</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="refused-tab" data-toggle="tab" href="#refused" role="tab" aria-controls="refused" aria-selected="false">Refusées</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+    <% @pending_activities.each do |activity| %>
+      <%= link_to "/activités/#{activity.id}/edit" do %>
+        <div class="card-product">
+          <img src="<%= activity.image %>" />
+          <div class="card-product-infos">
+            <h2><%= activity.title %></h2>
+            <p><%= activity.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
+    <% @accepted_activities.each do |activity| %>
+      <%= link_to "/activités/#{activity.id}/edit" do %>
+        <div class="card-product">
+          <img src="<%= activity.image %>" />
+          <div class="card-product-infos">
+            <h2><%= activity.title %></h2>
+            <p><%= activity.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="refused" role="tabpanel" aria-labelledby="refused-tab">
+    <% @refused_activities.each do |activity| %>
+      <%= link_to "/activités/#{activity.id}/edit" do %>
+        <div class="card-product">
+          <img src="<%= activity.image %>" />
+          <div class="card-product-infos">
+            <h2><%= activity.title %></h2>
+            <p><%= activity.description %></p>
+          </div>
+        </div>
+      <% end %>  
+    <% end %>
+  </div>
+</div>

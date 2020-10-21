@@ -19,11 +19,29 @@ class ActivitiesController < ApplicationController
       render :new
     end
   end
+  
+  def edit
+    @activity = Activity.find(params[:id])
+  end
+
+  def update
+    @activity = Activity.find(params[:id])
+    if @activity.update(activity_params)
+      flash[:notice] = 'Bien fait, merci'
+      redirect_to "/admin/activités"
+    else
+      render :edit
+    end
+  end
+
+  def show
+    @activity = Activity.find(params[:id])
+  end
 
   private
 
   def activity_params
-    params.require(:activity).permit(:titre, :description)
+    params.require(:activity).permit(:title, :description, :image, :status, :date)
   end
 
 end
