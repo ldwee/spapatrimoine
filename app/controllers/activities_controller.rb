@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :new, :create]
+  before_action :authenticate_user!, except: [:index, :new, :create, :show]
 
   def index
     @activities = Activity.where(status:"acceptée")
