@@ -1,0 +1,11 @@
+<p>Activités existantes : </p>
+<ul>
+    <% @activity_types.each do |activity_type| %>
+        <li> - <%= activity_type.title %>
+    <% end %>
+</ul>
+
+<br>
+
+
+<%= link_to "Créer un type d'activité", "/admin/activity_types_new" %>
