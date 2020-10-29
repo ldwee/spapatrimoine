@@ -9,27 +9,4 @@ class AdminController < ApplicationController
     @refused_activities = Activity.where(status: "refusée")
   end
 
-  def activity_types 
-    @activity_types = ActivityType.all
-  end
-
-  def activity_type_new
-    @activity_type = ActivityType.new
-  end
-
-  def activity_type_create
-    @activity_type = ActivityType.new(activity_type_params)
-    if @activity_type.save
-      redirect_to activity_types_path
-    else
-      render :new
-    end
-  end
-
-  private
-
-  def activity_type_params
-    params.require(:activity_type).permit(:title)
-  end
-
 end
