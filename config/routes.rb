@@ -17,5 +17,9 @@ Rails.application.routes.draw do
   get '/activity_types/new', to: 'activity_types#new'
   post '/activity_types', to: 'activity_types#create'
 
+  get '/activity_places', to: 'activity_places#index'
+  get '/activity_places/new', to: 'activity_places#new'
+  post '/activity_places', to: 'activity_places#create'
+
 
 end

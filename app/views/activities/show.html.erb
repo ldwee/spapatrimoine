@@ -11,9 +11,14 @@
 </div>
 
 <div>
-    <p><%= @activity.activity_type_id %></p>
+    <p><%= @activity.activity_type.title %></p>
 </div>
 
 <div>
     <h2><%= @activity.date %></h2>
+</div>
+
+<div>
+    <p><%= @activity.activity_place.Name %></p>
+    <p><%= @activity.activity_place.Address %></p>
 </div>
