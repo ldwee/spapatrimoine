@@ -2,5 +2,6 @@
 <%= simple_form_for @activity do |f| %>
     <%= f.input :title, label: 'Titre' %>
     <%= f.input :description %>
+    <%= f.input :activity_type_id %>
     <%= f.submit 'Soumettre' %>
 <% end %>
