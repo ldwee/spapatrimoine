@@ -22,11 +22,11 @@ class ActivitiesController < ApplicationController
   
   def edit
     @activity = Activity.find(params[:id])
+    @activity_types = ActivityType.all
   end
 
   def update
     @activity = Activity.find(params[:id])
-    @activity_types = ActivityType.all
     p @activity_types
     if @activity.update(activity_params)
       flash[:notice] = 'Bien fait, merci'
@@ -43,7 +43,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :image, :status, :date)
+    params.require(:activity).permit(:title, :description, :image, :status, :date, :activity_type_id)
   end
 
 end
