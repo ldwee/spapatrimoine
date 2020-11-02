@@ -23,6 +23,7 @@ class ActivitiesController < ApplicationController
   def edit
     @activity = Activity.find(params[:id])
     @activity_types = ActivityType.all
+    @activity_places = ActivityPlace.all
   end
 
   def update
@@ -43,7 +44,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :image, :status, :date, :activity_type_id)
+    params.require(:activity).permit(:title, :description, :image, :status, :date, :activity_type_id, :activity_place_id)
   end
 
 end

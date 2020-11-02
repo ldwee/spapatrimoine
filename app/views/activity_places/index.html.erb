@@ -1,0 +1,11 @@
+<p>Endroits existants : </p>
+<ul>
+    <% @activity_places.each do |activity_place| %>
+        <li> - <%= activity_place.Name %> &nbsp;&nbsp;&nbsp; <%= activity_place.Address %>
+    <% end %>
+</ul>
+
+<br>
+
+
+<%= link_to "Créer un lieu", "activity_places/new" %>

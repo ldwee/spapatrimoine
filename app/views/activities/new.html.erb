@@ -1,7 +1,11 @@
-<h2>Proposez une activité</h2>
-<%= simple_form_for @activity do |f| %>
-    <%= f.input :title, label: 'Titre' %>
-    <%= f.input :description %>
-    <%= f.input :activity_type_id %>
-    <%= f.submit 'Soumettre' %>
-<% end %>
+
+<div class="w-10/12 mx-auto">
+    <h2>Proposez une activité</h2>
+    <%= simple_form_for @activity do |f| %>
+        <%= f.input :title, label: 'Titre' %>
+        <%= f.input :description %>
+        <%= f.association :activity_type, label: "Type d'activité" %>
+        <%= f.association :activity_place, label_method: :Name, value_method: :id, label: "Lieu" %>
+        <%= f.submit 'Soumettre' %>
+    <% end %>
+</div>
