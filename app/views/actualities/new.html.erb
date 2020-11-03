@@ -1,0 +1,9 @@
+<div class="w-10/12 mx-auto">
+    <h2>Proposez une actualité</h2>
+    <%= simple_form_for @actuality do |f| %>
+        <%= f.input :titre, label: 'Titre' %>
+        <%= f.input :description %>
+        <%= f.input :image %>
+        <%= f.submit 'Soumettre' %>
+    <% end %>
+</div>

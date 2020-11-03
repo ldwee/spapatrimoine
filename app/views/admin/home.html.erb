@@ -1,4 +1,10 @@
-<h1>Admin#home</h1>
-<%= link_to "Activités (#{@nbr_activities})", "/admin/activités" %>
-<%= link_to "Types d'activité", "/activity_types" %>
-<%= link_to "Lieux d'activité", "/activity_places" %>
+<div class="w-10/12 mx-auto">
+    <h1>Admin#home</h1>
+    <%= link_to "Activités (#{@nbr_activities})", "/admin/activités" %>
+    <br>
+    <%= link_to "Actualités (#{@nbr_actualities})", "/admin/actualités" %>
+    <br>
+    <%= link_to "Types d'activité", "/activity_types" %>
+    <br>
+    <%= link_to "Lieux d'activité", "/activity_places" %>
+</div>

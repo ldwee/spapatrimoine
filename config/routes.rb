@@ -11,15 +11,22 @@ Rails.application.routes.draw do
   
   get '/admin', to: 'admin#home'
   get '/admin/activités', to: 'admin#activities'
+  get '/admin/actualités', to: 'admin#actualities'
 
 
-  get '/activity_types', to: 'activity_types#index'
-  get '/activity_types/new', to: 'activity_types#new'
-  post '/activity_types', to: 'activity_types#create'
+  get '/activity_types', to: 'actuality_types#index'
+  get '/activity_types/new', to: 'actuality_types#new'
+  post '/activity_types', to: 'actuality_types#create'
 
-  get '/activity_places', to: 'activity_places#index'
-  get '/activity_places/new', to: 'activity_places#new'
-  post '/activity_places', to: 'activity_places#create'
+  get '/activity_places', to: 'actuality_places#index'
+  get '/activity_places/new', to: 'actuality_places#new'
+  post '/activity_places', to: 'actuality_places#create'
 
+  get '/actualités', to: 'actualities#index', as: 'actualities'
+  get '/actualités/new', to: 'actualities#new'
+  post '/actualités', to: 'actualities#create'
+  get '/actualités/:id/edit', to: 'actualities#edit'
+  get '/actualités/:id', to: 'actualities#show', as: 'actuality'
+  patch '/actualités/:id', to: 'actualities#update'
 
 end
