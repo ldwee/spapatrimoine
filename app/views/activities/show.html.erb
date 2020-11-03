@@ -1,24 +1,26 @@
-<div>
-    <img src="<%= @activity.image %>" />
-</div>
+<div class="w-10/12 mx-auto">
+    <div>
+        <img src="<%= @activity.image %>" />
+    </div>
 
-<div>
-    <h2><%= @activity.title %></h2>
-</div>
+    <div>
+        <h2><%= @activity.title %></h2>
+    </div>
 
-<div>
-    <p><%= @activity.description %></p>
-</div>
+    <div>
+        <p><%= @activity.description %></p>
+    </div>
 
-<div>
-    <p><%= @activity.activity_type.title %></p>
-</div>
+    <div>
+        <p><%= @activity.activity_type.title %></p>
+    </div>
 
-<div>
-    <h2><%= @activity.date %></h2>
-</div>
+    <div>
+        <h2><%= @activity.date %></h2>
+    </div>
 
-<div>
-    <p><%= @activity.activity_place.Name %></p>
-    <p><%= @activity.activity_place.Address %></p>
+    <div>
+        <p><%= @activity.activity_place.Name %></p>
+        <p><%= @activity.activity_place.Address %></p>
+    </div>
 </div>

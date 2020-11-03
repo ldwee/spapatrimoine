@@ -1,11 +1,10 @@
-<p>Types d'activité existantes : </p>
-<ul>
-    <% @activity_types.each do |activity_type| %>
-        <li> - <%= activity_type.title %>
-    <% end %>
-</ul>
-
-<br>
-
-
-<%= link_to "Créer un type d'activité", "activity_types/new" %>
+<div class="w-10/12 mx-auto">
+    <p>Types d'activité existantes : </p>
+    <ul>
+        <% @activity_types.each do |activity_type| %>
+            <li> - <%= activity_type.title %>
+        <% end %>
+    </ul>
+    <br>
+    <%= link_to "Créer un type d'activité", "activity_types/new" %>
+</div>

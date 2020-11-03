@@ -1,0 +1,10 @@
+<div class="w-10/12 mx-auto">
+    <h2>traiter une actualité</h2>
+    <%= simple_form_for @actuality do |f| %>
+        <%= f.input :titre, label: 'Titre' %>
+        <%= f.input :description %>
+        <%= f.input :image %>
+        <%= f.input :status, collection: ["en attente", "acceptée", "refusée", "classée", ] %> 
+        <%= f.submit 'Soumettre' %>
+    <% end %>
+</div>

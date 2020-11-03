@@ -9,42 +9,58 @@
     <li class="nav-item" role="presentation">
       <a class="nav-link" id="refused-tab" data-toggle="tab" href="#refused" role="tab" aria-controls="refused" aria-selected="false">Refusées</a>
     </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="classified-tab" data-toggle="tab" href="#classified" role="tab" aria-controls="classified" aria-selected="false">Classées</a>
+    </li>
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
-      <% @pending_activities.each do |activity| %>
-        <%= link_to "/activités/#{activity.id}/edit" do %>
+      <% @pending_actualities.each do |actuality| %>
+        <%= link_to "/actualités/#{actuality.id}/edit" do %>
           <div class="card-product">
-            <img src="<%= activity.image %>" />
+            <img src="<%= actuality.image %>" />
             <div class="card-product-infos">
-              <h2><%= activity.title %></h2>
-              <p><%= activity.description %></p>
+              <h2><%= actuality.titre %></h2>
+              <p><%= actuality.description %></p>
             </div>
           </div>
         <% end %>
       <% end %>
     </div>
     <div class="tab-pane fade" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
-      <% @accepted_activities.each do |activity| %>
-        <%= link_to "/activités/#{activity.id}/edit" do %>
+      <% @accepted_actualities.each do |actuality| %>
+        <%= link_to "/actualités/#{actuality.id}/edit" do %>
           <div class="card-product">
-            <img src="<%= activity.image %>" />
+            <img src="<%= actuality.image %>" />
             <div class="card-product-infos">
-              <h2><%= activity.title %></h2>
-              <p><%= activity.description %></p>
+              <h2><%= actuality.titre %></h2>
+              <p><%= actuality.description %></p>
             </div>
           </div>
         <% end %>
       <% end %>
     </div>
     <div class="tab-pane fade" id="refused" role="tabpanel" aria-labelledby="refused-tab">
-      <% @refused_activities.each do |activity| %>
-        <%= link_to "/activités/#{activity.id}/edit" do %>
+      <% @refused_actualities.each do |actuality| %>
+        <%= link_to "/actualités/#{actuality.id}/edit" do %>
           <div class="card-product">
-            <img src="<%= activity.image %>" />
+            <img src="<%= actuality.image %>" />
             <div class="card-product-infos">
-              <h2><%= activity.title %></h2>
-              <p><%= activity.description %></p>
+              <h2><%= actuality.titre %></h2>
+              <p><%= actuality.description %></p>
+            </div>
+          </div>
+        <% end %>  
+      <% end %>
+    </div>
+    <div class="tab-pane fade" id="classified" role="tabpanel" aria-labelledby="classified-tab">
+      <% @classified_actualities.each do |actuality| %>
+        <%= link_to "/actualités/#{actuality.id}/edit" do %>
+          <div class="card-product">
+            <img src="<%= actuality.image %>" />
+            <div class="card-product-infos">
+              <h2><%= actuality.titre %></h2>
+              <p><%= actuality.description %></p>
             </div>
           </div>
         <% end %>  

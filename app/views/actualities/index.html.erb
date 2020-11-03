@@ -1,0 +1,17 @@
+-<div class="w-10/12 mx-auto">
+    <h1>Les actualités</h1>
+
+    <%= link_to "Proposez une nouvelle actualité", "/actualités/new" %>
+
+    <% @actualities.each do |actuality| %>
+        <%= link_to "/actualités/#{actuality.id}" do %>
+            <div class="card-product">
+                <img src="<%= actuality.image %>" />
+                <div class="card-product-infos">
+                    <h2><%= actuality.titre %></h2>
+                    <p><%= actuality.description %></p>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>

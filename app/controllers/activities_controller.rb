@@ -28,7 +28,6 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
-    p @activity_types
     if @activity.update(activity_params)
       flash[:notice] = 'Bien fait, merci'
       redirect_to "/admin/activités"
