@@ -7,7 +7,14 @@
         <%= f.input :image %>
         <%= f.input :activity_type_id, collection: @activity_types, label: "Type d'activité" %>
         <%= f.input :activity_place_id, collection: @activity_places, label_method: :Name, value_method: :id, label: "Lieu" %>
-        <%= f.input :status, collection: ["en attente", "acceptée", "refusée"] %> 
+        <%= f.input :status, collection: ["attente", "acceptée", "refusée"] %> 
         <%= f.submit 'Soumettre' %>
+
     <% end %>
+    <br>
+    <%= link_to "Effacer cette activité",
+        activity_path(@activity),
+        method: :delete, 
+        data: {confirm: "T'es sur?" }%>
+
 </div>

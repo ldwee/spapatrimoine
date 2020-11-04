@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/activités/:id/edit', to: 'activities#edit'
   get '/activités/:id', to: 'activities#show', as: 'activity'
   patch '/activités/:id', to: 'activities#update'
+  delete '/activités/:id', to: 'activities#destroy'
   
   get '/admin', to: 'admin#home'
   get '/admin/activités', to: 'admin#activities'
@@ -28,5 +29,6 @@ Rails.application.routes.draw do
   get '/actualités/:id/edit', to: 'actualities#edit'
   get '/actualités/:id', to: 'actualities#show', as: 'actuality'
   patch '/actualités/:id', to: 'actualities#update'
+  delete '/actualités/:id', to: 'actualities#destroy'
 
 end
