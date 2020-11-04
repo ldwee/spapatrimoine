@@ -1,0 +1,12 @@
+<div class="w-10/12 mx-auto">
+    <p>Thèmes existants : </p>
+    <ul>
+        <% @themes.each do |theme| %>
+            <%= link_to "/themes/#{theme.id}/edit" do %>
+                <li> - <%= theme.nom %> &nbsp;&nbsp;&nbsp; <%= theme.description %>
+            <% end %>
+        <% end %>
+    </ul>
+    <br>
+    <%= link_to "Créer un thème", "themes/new" %>
+</div>
