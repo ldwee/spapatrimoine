@@ -4,7 +4,13 @@
         <%= f.input :titre, label: 'Titre' %>
         <%= f.input :description %>
         <%= f.input :image %>
-        <%= f.input :status, collection: ["en attente", "acceptée", "refusée", "classée", ] %> 
+        <%= f.input :activity_id, collection: @activities, label: "Activité" %>
+        <%= f.input :status, collection: ["attente", "acceptée", "refusée", "classée"] %> 
         <%= f.submit 'Soumettre' %>
     <% end %>
+    <br>
+    <%= link_to "Effacer cette actualité",
+        actuality_path(@actuality),
+        method: :delete, 
+        data: {confirm: "T'es sur?" }%>
 </div>

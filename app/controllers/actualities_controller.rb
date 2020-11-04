@@ -22,7 +22,7 @@ class ActualitiesController < ApplicationController
     
     def edit
       @actuality = Actuality.find(params[:id])
-     
+      @activities = Activity.all
     end
   
     def update
@@ -39,10 +39,16 @@ class ActualitiesController < ApplicationController
       @actuality = Actuality.find(params[:id])
     end
   
+    def destroy
+      @actuality = Actuality.find(params[:id])
+      @actuality.destroy
+      redirect_to actualities_path
+    end
+
     private
   
     def actuality_params
-      params.require(:actuality).permit(:titre, :description, :status, :image)
+      params.require(:actuality).permit(:titre, :description, :status, :image, :activity_id)
     end
   
 end
