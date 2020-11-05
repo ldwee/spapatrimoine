@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_161240) do
+ActiveRecord::Schema.define(version: 2020_11_05_151324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,21 @@ ActiveRecord::Schema.define(version: 2020_11_04_161240) do
     t.text "image"
     t.bigint "activity_id"
     t.index ["activity_id"], name: "index_actualities_on_activity_id"
+  end
+
+  create_table "patrimoines", force: :cascade do |t|
+    t.string "libelle"
+    t.text "illustration"
+    t.string "localisation"
+    t.string "inscription"
+    t.string "categorie"
+    t.string "notice"
+    t.text "etat"
+    t.boolean "endangered"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
+    t.string "ipic"
   end
 
   create_table "themes", force: :cascade do |t|
