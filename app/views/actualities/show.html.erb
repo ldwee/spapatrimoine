@@ -12,7 +12,7 @@
     </div>
 
     <div>
-        <p><%= @actuality.activity.title == nil ? "" : @actuality.activity.title %></p>
+        <p><%=  @actuality.activity.nil? ? "" : @actuality.activity.title %></p>
     </div>
 
     <div>

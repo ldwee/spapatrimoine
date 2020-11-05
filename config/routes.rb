@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   
   get '/admin', to: 'admin#home'
   get '/admin/activités', to: 'admin#activities'
-  get '/admin/actualités', to: 'admin#actualities'
+  get '/admin/patrimoines', to: 'admin#patrimoines'
 
 
   get '/activity_types', to: 'activity_types#index'
@@ -30,6 +30,12 @@ Rails.application.routes.draw do
   Rails.application.routes.draw do
     resources :activity_types
   end
+
+  Rails.application.routes.draw do
+    resources :patrimoines
+  end
+
+
 
   get '/actualités', to: 'actualities#index', as: 'actualities'
   get '/actualités/new', to: 'actualities#new'

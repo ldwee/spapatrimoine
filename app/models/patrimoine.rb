@@ -1,0 +1,2 @@
+class Patrimoine < ApplicationRecord
+end

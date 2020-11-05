@@ -1,0 +1,17 @@
+<div class="w-10/12 mx-auto">
+    <h1>Le patrimoine Spadois</h1>
+    <br>
+    <%= link_to "Proposez une nouveau Patrimoine", "/patrimoines/new" %>
+
+    <% @patrimoines.each do |patrimoine| %>
+        <%= link_to "/patrimoines/#{patrimoine.id}" do %>
+            <div class="card-product">
+                <img src="<%= patrimoine.illustration %>" />
+                <div class="card-product-infos">
+                    <h2><%= patrimoine.libelle %></h2>
+                    <p><%= patrimoine.notice %></p>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>
