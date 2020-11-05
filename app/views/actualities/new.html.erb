@@ -4,6 +4,7 @@
         <%= f.input :titre, label: 'Titre' %>
         <%= f.input :description %>
         <%= f.input :image %>
+        <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
         <%= f.input :activity_id, collection: @activities, label: "Activité" %>
         <%= f.submit 'Soumettre' %>
     <% end %>

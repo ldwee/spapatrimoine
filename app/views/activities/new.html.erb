@@ -4,6 +4,7 @@
     <%= simple_form_for @activity do |f| %>
         <%= f.input :title, label: 'Titre' %>
         <%= f.input :description %>
+        <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
         <%= f.association :activity_type, label: "Type d'activité" %>
         <%= f.association :activity_place, label_method: :Name, value_method: :id, label: "Lieu" %>
         <%= f.submit 'Soumettre' %>
