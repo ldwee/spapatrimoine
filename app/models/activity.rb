@@ -4,5 +4,6 @@ class Activity < ApplicationRecord
     validates :status, presence: true, inclusion: { in: %w(attente acceptée refusée)}
     belongs_to :activity_type
     belongs_to :activity_place
-    has_many :actualities, dependent: :nullify
+    has_many :actualities
+    belongs_to :patrimoine, optional: true
 end

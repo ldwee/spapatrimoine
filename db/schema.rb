@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_151324) do
+ActiveRecord::Schema.define(version: 2020_11_05_162458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 2020_11_05_151324) do
     t.text "image"
     t.bigint "activity_type_id"
     t.bigint "activity_place_id"
+    t.bigint "patrimoine_id"
     t.index ["activity_place_id"], name: "index_activities_on_activity_place_id"
     t.index ["activity_type_id"], name: "index_activities_on_activity_type_id"
+    t.index ["patrimoine_id"], name: "index_activities_on_patrimoine_id"
   end
 
   create_table "activity_places", force: :cascade do |t|
@@ -50,7 +52,9 @@ ActiveRecord::Schema.define(version: 2020_11_05_151324) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "image"
     t.bigint "activity_id"
+    t.bigint "patrimoine_id"
     t.index ["activity_id"], name: "index_actualities_on_activity_id"
+    t.index ["patrimoine_id"], name: "index_actualities_on_patrimoine_id"
   end
 
   create_table "patrimoines", force: :cascade do |t|
@@ -89,5 +93,7 @@ ActiveRecord::Schema.define(version: 2020_11_05_151324) do
 
   add_foreign_key "activities", "activity_places"
   add_foreign_key "activities", "activity_types"
+  add_foreign_key "activities", "patrimoines"
   add_foreign_key "actualities", "activities"
+  add_foreign_key "actualities", "patrimoines"
 end
