@@ -1,0 +1,13 @@
+<div class="w-10/12 mx-auto">
+    <h2>traiter un thème</h2>
+    <%= simple_form_for @theme do |f| %>
+        <%= f.input :nom, label: 'Nom du thème'  %>
+        <%= f.input :description, label: 'Description'  %>
+        <%= f.submit 'Soumettre' %>
+    <% end %>
+    <br>
+    <%= link_to "Effacer ce thème",
+       theme_path(@theme),
+        method: :delete, 
+        data: {confirm: "T'es sur?" }%>
+</div>

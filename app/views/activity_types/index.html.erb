@@ -2,7 +2,9 @@
     <p>Types d'activité existantes : </p>
     <ul>
         <% @activity_types.each do |activity_type| %>
-            <li> - <%= activity_type.title %>
+            <%= link_to "/activity_types/#{activity_type.id}/edit" do %>
+                <li> - <%= activity_type.title %> 
+            <% end %>
         <% end %>
     </ul>
     <br>

@@ -17,6 +17,27 @@ class ActivityTypesController < ApplicationController
         end
     end
 
+    def edit
+        @activity_type = ActivityType.find(params[:id])
+    end
+
+    def update
+        @activity_type = ActivityType.find(params[:id])
+        if @activity_type.update(activity_type_params)
+          flash[:notice] = 'Bien fait, merci'
+          redirect_to "/activity_types"
+        else
+          render :edit
+        end
+      end
+    
+      def destroy
+        @activity_type = ActivityType.find(params[:id])
+        @activity_type.destroy
+        redirect_to activity_types_path
+      end
+
+
     private
 
     def activity_type_params

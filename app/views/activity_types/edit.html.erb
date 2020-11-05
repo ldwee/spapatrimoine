@@ -1,0 +1,13 @@
+<div class="w-10/12 mx-auto">
+    <h2>traiter un type d'activité</h2>
+    <%= simple_form_for @activity_type do |f| %>
+        <%= f.input :title, label: 'Titre'  %>
+        <%= f.submit 'Soumettre' %>
+    <% end %>
+    <br>
+    <%= link_to "Effacer ce type d'activité",
+        activity_type_path(@activity_type),
+        method: :delete, 
+        data: {confirm: "T'es sur?" }%>
+
+</div>
