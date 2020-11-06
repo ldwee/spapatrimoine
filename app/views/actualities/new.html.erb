@@ -4,6 +4,7 @@
         <%= f.input :titre, label: 'Titre' %>
         <%= f.input :description %>
         <%= f.input :image %>
+        <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
         <%= f.input :activity_id, collection: @activities, label: "Activité" %>
         <%= f.input :contributor_id, label_method:  :firstname, value_method: :id, label: "Prénom" %>
         <%= f.input :contributor_id, label_method:  :lastname, value_method: :id, label: "Nom" %>

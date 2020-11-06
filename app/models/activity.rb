@@ -6,4 +6,6 @@ class Activity < ApplicationRecord
     belongs_to :activity_place
     has_many :actualities, dependent: :nullify
     belongs_to :contributor
+    belongs_to :patrimoine, optional: true
+
 end

@@ -7,6 +7,7 @@
         <%= f.input :image %>
         <%= f.input :activity_type_id, collection: @activity_types, label: "Type d'activité" %>
         <%= f.input :activity_place_id, collection: @activity_places, label_method: :Name, value_method: :id, label: "Lieu" %>
+        <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
         <%= f.input :status, collection: ["attente", "acceptée", "refusée"] %> 
         <%= f.input :contributor_id, label_method:  :firstname, value_method: :id, label: "Prénom" %>
         <%= f.input :contributor_id, label_method:  :lastname, value_method: :id, label: "Nom" %>
