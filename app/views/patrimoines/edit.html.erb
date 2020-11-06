@@ -5,12 +5,15 @@
         <%= f.input :libelle, label: 'Libéllé' %>
         <%= f.input :illustration, label: "Illustration(s)" %>
         <%= f.input :localisation, label: "Localisation" %>
-        <%= f.input :inscription, label: "Inscription" %>
+        <%= f.input :inscription, collection: ["IPIC", "IPIC pastillé ", "Partiellement Classé", "Entièrement classé"], label: "Inscription" %>
         <%= f.input :categorie, collection: ["Défensif", "Economique", "Domestique", "Funéraire", "Philosophique", "Public", "Technique"], label: "Catégorie" %>
         <%= f.input :notice, label: "Notice" %>
         <%= f.input :etat, collection: ["Excellent", "Bon", "Moyen", "Mauvais", "Démoli"], label: "Etat" %>
         <%= f.input :endangered, label: "En danger?" %>  
         <%= f.input :status, collection: ["attente", "acceptée", "refusée"], label: "Status" %>
+        <%= f.input :contributor_id, label_method:  :firstname, value_method: :id, label: "Prénom" %>
+        <%= f.input :contributor_id, label_method:  :lastname, value_method: :id, label: "Nom" %>
+        <%= f.input :contributor_id, label_method:  :email, value_method: :id, label: "Email" %>
         <%= f.submit 'Soumettre' %>
 
 

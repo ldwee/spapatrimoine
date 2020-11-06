@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_162458) do
+
+ActiveRecord::Schema.define(version: 2020_11_06_095910) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +28,10 @@ ActiveRecord::Schema.define(version: 2020_11_05_162458) do
     t.bigint "activity_type_id"
     t.bigint "activity_place_id"
     t.bigint "patrimoine_id"
+    t.bigint "contributor_id"
     t.index ["activity_place_id"], name: "index_activities_on_activity_place_id"
     t.index ["activity_type_id"], name: "index_activities_on_activity_type_id"
+    t.index ["contributor_id"], name: "index_activities_on_contributor_id"
     t.index ["patrimoine_id"], name: "index_activities_on_patrimoine_id"
   end
 
@@ -53,8 +57,18 @@ ActiveRecord::Schema.define(version: 2020_11_05_162458) do
     t.text "image"
     t.bigint "activity_id"
     t.bigint "patrimoine_id"
+    t.bigint "contributor_id"
     t.index ["activity_id"], name: "index_actualities_on_activity_id"
+    t.index ["contributor_id"], name: "index_actualities_on_contributor_id"
     t.index ["patrimoine_id"], name: "index_actualities_on_patrimoine_id"
+  end
+
+  create_table "contributors", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "patrimoines", force: :cascade do |t|
@@ -70,6 +84,8 @@ ActiveRecord::Schema.define(version: 2020_11_05_162458) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
     t.string "ipic"
+    t.bigint "contributor_id"
+    t.index ["contributor_id"], name: "index_patrimoines_on_contributor_id"
   end
 
   create_table "themes", force: :cascade do |t|
@@ -93,7 +109,11 @@ ActiveRecord::Schema.define(version: 2020_11_05_162458) do
 
   add_foreign_key "activities", "activity_places"
   add_foreign_key "activities", "activity_types"
+
+  add_foreign_key "activities", "contributors"
   add_foreign_key "activities", "patrimoines"
   add_foreign_key "actualities", "activities"
+  add_foreign_key "actualities", "contributors"
   add_foreign_key "actualities", "patrimoines"
+  add_foreign_key "patrimoines", "contributors"
 end

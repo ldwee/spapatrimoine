@@ -7,6 +7,9 @@
         <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
         <%= f.association :activity_type, label: "Type d'activité" %>
         <%= f.association :activity_place, label_method: :Name, value_method: :id, label: "Lieu" %>
+        <%= f.input :contributor_id, label_method:  :firstname, value_method: :id, label: "Prénom" %>
+        <%= f.input :contributor_id, label_method:  :lastname, value_method: :id, label: "Nom" %>
+        <%= f.input :contributor_id, label_method:  :email, value_method: :id, label: "Email" %>
         <%= f.submit 'Soumettre' %>
     <% end %>
 </div>

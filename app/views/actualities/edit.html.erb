@@ -7,6 +7,9 @@
         <%= f.input :activity_id, collection: @activities, label: "Activité" %>
         <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
         <%= f.input :status, collection: ["attente", "acceptée", "refusée", "classée"] %> 
+        <%= f.input :contributor_id, label_method:  :firstname, value_method: :id, label: "Prénom" %>
+        <%= f.input :contributor_id, label_method:  :lastname, value_method: :id, label: "Nom" %>
+        <%= f.input :contributor_id, label_method:  :email, value_method: :id, label: "Email" %>
         <%= f.submit 'Soumettre' %>
     <% end %>
     <br>

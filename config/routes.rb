@@ -36,6 +36,9 @@ Rails.application.routes.draw do
     resources :patrimoines
   end
 
+  Rails.application.routes.draw do
+    resources :contributors
+  end
 
 
   get '/actualités', to: 'actualities#index', as: 'actualities'
