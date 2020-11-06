@@ -12,7 +12,16 @@ class ActualitiesController < ApplicationController
     def create
       @actuality = Actuality.new(actuality_params)
       @actuality.status = "attente"
-      if @actuality.save
+      
+      @contributor = Contributor.find_by(email: params[:actuality][:contributors][:email])
+
+      if @contributor.nil?
+        @contributor = Contributor.new(contributor_params)
+      end
+  
+      @actuality.contributor = @contributor     
+      
+      if @actuality.save && @contributor.save
         flash[:notice] = 'Votre proposition est bien reçue, merci beaucoup.  Nous revenons vers vous pour une suite'
         redirect_to actualities_path
       else
@@ -50,5 +59,10 @@ class ActualitiesController < ApplicationController
     def actuality_params
       params.require(:actuality).permit(:titre, :description, :status, :image, :activity_id, :contributor_id)
     end
-  
+    
+    def contributor_params
+      params.require(:actuality).require(:contributors).permit(:firstname, :lastname, :email)
+    end
+    
+
 end
