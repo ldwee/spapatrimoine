@@ -7,9 +7,11 @@
         <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
         <%= f.association :activity_type, label: "Type d'activité" %>
         <%= f.association :activity_place, label_method: :Name, value_method: :id, label: "Lieu" %>
-        <%= f.input :contributor_id, label_method:  :firstname, value_method: :id, label: "Prénom" %>
-        <%= f.input :contributor_id, label_method:  :lastname, value_method: :id, label: "Nom" %>
-        <%= f.input :contributor_id, label_method:  :email, value_method: :id, label: "Email" %>
+        <%= f.simple_fields_for :contributors do |contributor_form| %>
+            <%= contributor_form.input :firstname, label: "Prénom", required: true %>
+            <%= contributor_form.input :lastname, label: "Nom", required: true %>
+            <%= contributor_form.input :email, label: "Email", placeholder: "user@domain.com", required: true %>
+        <% end %>
         <%= f.submit 'Soumettre' %>
     <% end %>
 </div>

@@ -3,8 +3,7 @@
 
     <% @contributors.each do |contributor| %>
         <%= link_to "/contributors/#{contributor.id}" do %>
-            <p>- <%= contributor.firstname %> </p> <% contributor.lastname %>, <% contributor.email%>
-            <br>
+            <p>- <%= contributor.firstname %> <%= contributor.lastname %>, <%= contributor.email %> </p> 
         <% end %>
     <% end %>
 </div>

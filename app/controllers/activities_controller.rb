@@ -12,7 +12,16 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.status = "attente"
-    if @activity.save
+    
+    @contributor = Contributor.find_by(email: params[:activity][:contributors][:email])
+
+    if @contributor.nil?
+      @contributor = Contributor.new(contributor_params)
+    end
+
+    @activity.contributor = @contributor
+
+    if @activity.save && @contributor.save
       flash[:notice] = 'Votre proposition est bien reçue, merci beaucoup.  Nous revenons vers vous pour une suite'
       redirect_to activities_path
     else
@@ -36,20 +45,24 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def show
+    @activity = Activity.find(params[:id])
+  end
+
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
     redirect_to activities_path
   end
 
-  def show
-    @activity = Activity.find(params[:id])
-  end
-
   private
 
   def activity_params
     params.require(:activity).permit(:title, :description, :image, :status, :date, :activity_type_id, :activity_place_id)
+  end
+
+  def contributor_params
+    params.require(:activity).require(:contributors).permit(:firstname, :lastname, :email)
   end
 
 end
