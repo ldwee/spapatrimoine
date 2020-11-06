@@ -9,6 +9,9 @@
         <%= f.input :notice, label: "Notice" %>
         <%= f.input :etat, collection: ["Excellent", "Bon", "Moyen", "Mauvais", "Démoli"], label: "Etat" %>
         <%= f.input :endangered, label: "En danger?" %>  
+        <%= f.input :contributor_id, label_method:  :firstname, value_method: :id, label: "Prénom" %>
+        <%= f.input :contributor_id, label_method:  :lastname, value_method: :id, label: "Nom" %>
+        <%= f.input :contributor_id, label_method:  :email, value_method: :id, label: "Email" %>
         <%= f.submit 'Soumettre' %>
     <% end %>
 </div>

@@ -1,0 +1,10 @@
+<div class="w-10/12 mx-auto">
+    <h1>Les contributeurs </h1>
+
+    <% @contributors.each do |contributor| %>
+        <%= link_to "/contributors/#{contributor.id}" do %>
+            <p>- <%= contributor.firstname %> </p> <% contributor.lastname %>, <% contributor.email%>
+            <br>
+        <% end %>
+    <% end %>
+</div>

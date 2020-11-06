@@ -5,6 +5,9 @@
         <%= f.input :description %>
         <%= f.input :image %>
         <%= f.input :activity_id, collection: @activities, label: "Activité" %>
+        <%= f.input :contributor_id, label_method:  :firstname, value_method: :id, label: "Prénom" %>
+        <%= f.input :contributor_id, label_method:  :lastname, value_method: :id, label: "Nom" %>
+        <%= f.input :contributor_id, label_method:  :email, value_method: :id, label: "Email" %>
         <%= f.submit 'Soumettre' %>
     <% end %>
 </div>

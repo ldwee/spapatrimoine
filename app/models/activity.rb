@@ -5,4 +5,5 @@ class Activity < ApplicationRecord
     belongs_to :activity_type
     belongs_to :activity_place
     has_many :actualities, dependent: :nullify
+    belongs_to :contributor
 end

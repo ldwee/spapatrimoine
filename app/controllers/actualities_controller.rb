@@ -48,7 +48,7 @@ class ActualitiesController < ApplicationController
     private
   
     def actuality_params
-      params.require(:actuality).permit(:titre, :description, :status, :image, :activity_id)
+      params.require(:actuality).permit(:titre, :description, :status, :image, :activity_id, :contributor_id)
     end
   
 end
