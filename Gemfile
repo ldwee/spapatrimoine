@@ -33,12 +33,18 @@ gem 'devise'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
-group :development, :test do  gem 'pry-byebug'
+
+# Gems for testing
+gem 'simplecov', require: false, group: :test
+
+
+group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
-
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 4.0.1'
+  gem 'factory_bot_rails'
 end
 
 group :development do
