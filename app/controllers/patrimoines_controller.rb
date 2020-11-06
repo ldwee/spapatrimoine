@@ -8,12 +8,14 @@ class PatrimoinesController < ApplicationController
   
     def new
       @patrimoine = Patrimoine.new
+      @contributor = Contributor.new
     end
   
     def create
       @patrimoine = Patrimoine.new(patrimoine_params)
       @patrimoine.status = "attente"
-      if @patrimoine.save
+      p contributor_params
+      if @patrimoine.save!
         flash[:notice] = 'Votre proposition est bien reçue, merci beaucoup.  Nous revenons vers vous pour une suite'
         redirect_to patrimoines_path
       else
@@ -52,4 +54,9 @@ class PatrimoinesController < ApplicationController
       params.require(:patrimoine).permit(:libelle, :illustration, :localisation, :inscription, :categorie, :notice, :etat, :endangered, :status, :ipic)
     end
   
+    def contributor_params
+      params.permit(:firstname, :lastname, :email)
+    end
+
+
   end
