@@ -5,29 +5,38 @@ class PatrimoinesController < ApplicationController
     def index
       @patrimoines = Patrimoine.where(status:"acceptée")
     end
-  
+
     def new
       @patrimoine = Patrimoine.new
-      @contributor = Contributor.new
     end
-  
+
     def create
       @patrimoine = Patrimoine.new(patrimoine_params)
       @patrimoine.status = "attente"
-      p contributor_params
-      if @patrimoine.save!
+
+      # check if contributor already exists
+      @contributor = Contributor.find_by(email: params[:patrimoine][:contributors][:email])
+
+      # if contributor doesnt exist, create a new one
+      if @contributor.nil?
+        @contributor = Contributor.new(contributor_params)
+      end
+
+      # link that contributor to the new patrimoine
+      @patrimoine.contributor = @contributor
+
+      if @patrimoine.save && @contributor.save
         flash[:notice] = 'Votre proposition est bien reçue, merci beaucoup.  Nous revenons vers vous pour une suite'
         redirect_to patrimoines_path
       else
         render :new
       end
     end
-    
+
     def edit
       @patrimoine = Patrimoine.find(params[:id])
-
     end
-  
+
     def update
       @patrimoine = Patrimoine.find(params[:id])
       if @patrimoine.update(patrimoine_params)
@@ -37,26 +46,25 @@ class PatrimoinesController < ApplicationController
         render :edit
       end
     end
-  
+
     def destroy
       @patrimoine = Patrimoine.find(params[:id])
       @patrimoine.destroy
       redirect_to patrimoines_path
     end
-  
+
     def show
       @patrimoine = Patrimoine.find(params[:id])
     end
-  
+
     private
-  
+
     def patrimoine_params
       params.require(:patrimoine).permit(:libelle, :illustration, :localisation, :inscription, :categorie, :notice, :etat, :endangered, :status, :ipic)
     end
-  
-    def contributor_params
-      params.permit(:firstname, :lastname, :email)
-    end
 
+    def contributor_params
+      params.require(:patrimoine).require(:contributors).permit(:firstname, :lastname, :email)
+    end
 
   end
