@@ -3,10 +3,11 @@
 
     <p>Patrimoine proposé par :</p>
     <ul>
-      <li><%= @patrimoine.contributor.firstname %></li>
-      <li><%= @patrimoine.contributor.lastname %></li>
-      <li><%= @patrimoine.contributor.email %></li>
+        <li><%= @patrimoine.contributor.firstname %></li>
+        <li><%= @patrimoine.contributor.lastname %></li>
+        <li><%= @patrimoine.contributor.email %></li>
     </ul>
+
     <%= simple_form_for @patrimoine do |f| %>
         <%= f.input :ipic, label: 'Fiche IPIC' %>
         <%= f.input :libelle, label: 'Libéllé' %>

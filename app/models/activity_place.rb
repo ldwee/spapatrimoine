@@ -1,5 +1,6 @@
 class ActivityPlace < ApplicationRecord
+    has_many :activities
+    
     validates :Name, presence: true
     validates :Address, presence: true
-    has_many :activities
 end

@@ -60,7 +60,7 @@ class PatrimoinesController < ApplicationController
     private
 
     def patrimoine_params
-      params.require(:patrimoine).permit(:libelle, :illustration, :localisation, :inscription, :categorie, :notice, :etat, :endangered, :status, :ipic)
+      params.require(:patrimoine).permit(:libelle, :illustration, :localisation, :inscription, :categorie, :notice, :etat, :endangered, :status, :ipic, :contributor_id)
     end
 
     def contributor_params
