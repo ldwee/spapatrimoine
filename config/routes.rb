@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/admin/activités', to: 'admin#activities'
   get '/admin/actualités', to: 'admin#actualities'
   get '/admin/patrimoines', to: 'admin#patrimoines'
+  post '/admin', to: 'admin#invite'
 
 
   get '/activity_types', to: 'activity_types#index'

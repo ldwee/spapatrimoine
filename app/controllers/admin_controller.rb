@@ -3,6 +3,7 @@ class AdminController < ApplicationController
     @nbr_activities = Activity.where(status: "attente").count
     @nbr_actualities = Actuality.where(status: "attente").count
     @nbr_patrimoines = Patrimoine.where(status: "attente").count
+    @user = User.new
   end
 
   def activities
@@ -23,6 +24,13 @@ class AdminController < ApplicationController
     @accepted_patrimoines = Patrimoine.where(status: "acceptée")
     @refused_patrimoines = Patrimoine.where(status: "refusée")
   end
+
+  def invite
+    p '------------------ PARAMS -------------'
+    p params
+    User.invite!(email: params[:email], firstname: params[:firstname], lastname: params[:lastname] )
+  end
+
 
 
 end
