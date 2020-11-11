@@ -1,0 +1,28 @@
+<div class="w-10/12 mx-auto">
+  <h2>Traiter une activité</h2>
+  <p>Activité proposée par :</p>
+  <ul>
+    <li><%= @activity.contributor.firstname %></li>
+    <li><%= @activity.contributor.lastname %></li>
+    <li><%= @activity.contributor.email %></li>
+  </ul>
+
+  <%= simple_form_for @activity do |f| %>
+      <%= f.input :title, label: 'Titre' %>
+      <%= f.input :description %>
+      <%= f.input :date %>
+      <%= f.input :image %>
+      <%= f.input :activity_type_id, collection: @activity_types, label: "Type d'activité" %>
+      <%= f.input :activity_place_id, collection: @activity_places, label_method: :Name, value_method: :id, label: "Lieu" %>
+      <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
+      <%= f.input :status, collection: ["attente", "acceptée", "refusée"] %> 
+      <%= f.submit 'Soumettre' %>
+
+  <% end %>
+  <br>
+  <%= link_to "Effacer cette activité",
+      activity_path(@activity),
+      method: :delete, 
+      data: {confirm: "T'es sur?" }%>
+
+</div>

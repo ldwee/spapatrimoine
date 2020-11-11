@@ -1,0 +1,24 @@
+<div class="w-10/12 mx-auto">
+    <h2>Traiter une actualité</h2>
+    <p>Actualité proposée par :</p>
+    <ul>
+      <li><%= @actuality.contributor.firstname %></li>
+      <li><%= @actuality.contributor.lastname %></li>
+      <li><%= @actuality.contributor.email %></li>
+    </ul>
+
+    <%= simple_form_for @actuality do |f| %>
+        <%= f.input :titre, label: 'Titre' %>
+        <%= f.input :description %>
+        <%= f.input :image %>
+        <%= f.input :activity_id, collection: @activities, label: "Activité" %>
+        <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
+        <%= f.input :status, collection: ["attente", "acceptée", "refusée", "classée"] %> 
+        <%= f.submit 'Soumettre' %>  
+    <% end %>
+    <br>
+    <%= link_to "Effacer cette actualité",
+        actuality_path(@actuality),
+        method: :delete, 
+        data: {confirm: "T'es sur?" }%>
+</div>

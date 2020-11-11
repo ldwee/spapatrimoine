@@ -5,7 +5,7 @@ class CreateActivities < ActiveRecord::Migration[6.0]
       t.date :date
       t.string :status
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

@@ -1,0 +1,8 @@
+<div class="w-10/12 mx-auto">
+    <h2>Créez un nouvel endroit</h2>
+    <%= simple_form_for @activity_place do |f| %>
+        <%= f.input :Name, label: 'Nom du lieu' %>
+        <%= f.input :Address, label: 'Adresse' %>
+        <%= f.submit 'Soumettre' %>
+    <% end %>
+</div>

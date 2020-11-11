@@ -1,0 +1,16 @@
+<div class="w-10/12 mx-auto">
+    <h2>Proposez une actualité</h2>
+    <%= simple_form_for @actuality do |f| %>
+        <%= f.input :titre, label: 'Titre' %>
+        <%= f.input :description %>
+        <%= f.input :image %>
+        <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
+        <%= f.association :activity, label_method: :title, value_method: :id, label: "Activité" %>
+         <%= f.simple_fields_for :contributors do |contributor_form| %>
+            <%= contributor_form.input :firstname, label: "Prénom", required: true %>
+            <%= contributor_form.input :lastname, label: "Nom", required: true %>
+            <%= contributor_form.input :email, label: "Email", placeholder: "user@domain.com", required: true %>        
+        <% end %>
+        <%= f.submit 'Soumettre' %>
+    <% end %>
+</div>

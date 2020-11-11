@@ -1,0 +1,50 @@
+<div class="w-10/12 mx-auto">
+    <div> 
+        <h2>Fiche IPIC : <%= @patrimoine.ipic%></h2>
+        <br>
+    </div>
+
+    <div> 
+        <h2>Libéllé : <%= @patrimoine.libelle%></h2>
+        <br>
+    </div>
+
+    <div>
+        Illustration(s) :
+        <br><img src="<%= @patrimoine.illustration %>" />
+        <br>
+    </div>
+
+    <div>
+        <p>Localisation : <%= @patrimoine.localisation %></p>
+        <br>
+    </div>
+
+    <div>
+        <p>Inscription : <%= @patrimoine.inscription %></p>
+        <br>
+    </div>
+
+    <div>
+        <h2>Catégorie : <%= @patrimoine.categorie %></h2>
+        <br>
+    </div>
+
+    <div>
+        <p>Notice :
+        <br><%= @patrimoine.notice %></p>
+        <br>
+    </div>
+
+    <div>
+        <p>Etat : <%= @patrimoine.etat %></p>
+        <br>
+    </div>
+
+    <div>
+        <p>En danger : <%= @patrimoine.endangered ? "Oui" : "Non" %></p>
+
+    </div>
+
+    </div>
+</div>

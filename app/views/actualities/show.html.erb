@@ -1,0 +1,22 @@
+<div class="w-10/12 mx-auto">
+    <div>
+        <img src="<%= @actuality.image %>" />
+    </div>
+
+    <div>
+        <h2><%= @actuality.titre %></h2>
+    </div>
+
+    <div>
+        <p><%= @actuality.created_at %></p>
+    </div>
+
+    <div>
+        <p><%=  @actuality.activity.nil? ? "" : @actuality.activity.title %></p>
+    </div>
+
+    <div>
+        <p><%= @actuality.description %></p>
+    </div>
+
+</div>

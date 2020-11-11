@@ -1,0 +1,14 @@
+<div class="w-10/12 mx-auto">
+    <h2>traiter un lieux d'activité</h2>
+    <%= simple_form_for @activity_place do |f| %>
+        <%= f.input :Name, label: 'Nom du lieu'  %>
+        <%= f.input :Address, label: 'Adresse'  %>
+        <%= f.submit 'Soumettre' %>
+    <% end %>
+    <br>
+    <%= link_to "Effacer ce lieux d'activité",
+        activity_place_path(@activity_place),
+        method: :delete, 
+        data: {confirm: "T'es sur?" }%>
+
+</div>

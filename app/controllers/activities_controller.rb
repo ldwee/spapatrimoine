@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :new, :create]
- 
+  before_action :authenticate_user!, except: [:index, :new, :create, :show]
+
   def index
     @activities = Activity.where(status:"acceptée")
   end
@@ -8,11 +8,20 @@ class ActivitiesController < ApplicationController
   def new
     @activity = Activity.new
   end
-  
+
   def create
-    activity = Activity.new(activity_params)
-    activity.status = "attente"
-    if activity.save
+    @activity = Activity.new(activity_params)
+    @activity.status = "attente"
+    
+    @contributor = Contributor.find_by(email: params[:activity][:contributors][:email])
+
+    if @contributor.nil?
+      @contributor = Contributor.new(contributor_params)
+    end
+
+    @activity.contributor = @contributor
+
+    if @activity.save && @contributor.save
       flash[:notice] = 'Votre proposition est bien reçue, merci beaucoup.  Nous revenons vers vous pour une suite'
       redirect_to activities_path
     else
@@ -20,10 +29,40 @@ class ActivitiesController < ApplicationController
     end
   end
   
+  def edit
+    @activity = Activity.find(params[:id])
+    @activity_types = ActivityType.all
+    @activity_places = ActivityPlace.all
+  end
+
+  def update
+    @activity = Activity.find(params[:id])
+    if @activity.update(activity_params)
+      flash[:notice] = 'Bien fait, merci'
+      redirect_to "/admin/activités"
+    else
+      render :edit
+    end
+  end
+
+  def show
+    @activity = Activity.find(params[:id])
+  end
+
+  def destroy
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+    redirect_to activities_path
+  end
+
   private
 
   def activity_params
-    params.require(:activity).permit(:titre, :description)
+    params.require(:activity).permit(:title, :description, :image, :status, :date, :activity_type_id, :activity_place_id, :contributor_id)
+  end
+
+  def contributor_params
+    params.require(:activity).require(:contributors).permit(:firstname, :lastname, :email)
   end
 
 end

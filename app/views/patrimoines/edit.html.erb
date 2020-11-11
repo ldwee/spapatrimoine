@@ -1,0 +1,32 @@
+<div class="w-10/12 mx-auto">
+    <h2>Traiter un patrimoine</h2>
+
+    <p>Patrimoine proposé par :</p>
+    <ul>
+        <li><%= @patrimoine.contributor.firstname %></li>
+        <li><%= @patrimoine.contributor.lastname %></li>
+        <li><%= @patrimoine.contributor.email %></li>
+    </ul>
+
+    <%= simple_form_for @patrimoine do |f| %>
+        <%= f.input :ipic, label: 'Fiche IPIC' %>
+        <%= f.input :libelle, label: 'Libéllé' %>
+        <%= f.input :illustration, label: "Illustration(s)" %>
+        <%= f.input :localisation, label: "Localisation" %>
+        <%= f.input :inscription, collection: ["IPIC", "IPIC pastillé ", "Partiellement Classé", "Entièrement classé"], label: "Inscription" %>
+        <%= f.input :categorie, collection: ["Défensif", "Economique", "Domestique", "Funéraire", "Philosophique", "Public", "Technique"], label: "Catégorie" %>
+        <%= f.input :notice, label: "Notice" %>
+        <%= f.input :etat, collection: ["Excellent", "Bon", "Moyen", "Mauvais", "Démoli"], label: "Etat" %>
+        <%= f.input :endangered, label: "En danger?" %>
+        <%= f.input :status, collection: ["attente", "acceptée", "refusée"], label: "Status" %>
+        <%= f.submit 'Soumettre' %>
+    <% end %>
+    <br>
+    <%= link_to "Effacer ce patrimoine",
+        patrimoine_path(@patrimoine),
+        method: :delete,
+        data: {confirm: "T'es sur?" }
+    %>
+
+</div>
+

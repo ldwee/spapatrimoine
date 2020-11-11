@@ -1,0 +1,19 @@
+<div class="w-10/12 mx-auto">
+    <h2>Proposez un patrimoine</h2>
+    <%= simple_form_for @patrimoine do |f| %>
+        <%= f.input :libelle, label: 'Libéllé' %>
+        <%= f.input :illustration, label: "Illustration(s)" %>
+        <%= f.input :localisation, label: "Localisation" %>
+        <%= f.input :inscription, label: "Inscription" %>
+        <%= f.input :categorie, collection: ["Défensif", "Economique", "Domestique", "Funéraire", "Philosophique", "Public", "Technique"], label: "Catégorie" %>
+        <%= f.input :notice, label: "Notice" %>
+        <%= f.input :etat, collection: ["Excellent", "Bon", "Moyen", "Mauvais", "Démoli"], label: "Etat" %>
+        <%= f.input :endangered, label: "En danger?" %>
+        <%= f.simple_fields_for :contributors do |contributor_form| %>
+            <%= contributor_form.input :firstname, label: "Prénom", required: true %>
+            <%= contributor_form.input :lastname, label: "Nom", required: true %>
+            <%= contributor_form.input :email, label: "Email", placeholder: "user@domain.com", required: true %>
+        <% end %>
+        <%= f.submit 'Soumettre' %>
+    <% end %>
+</div>

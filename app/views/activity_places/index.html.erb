@@ -1,0 +1,13 @@
+<div class="w-10/12 mx-auto">
+    <p>Endroits existants : </p>
+    <ul>
+        <% @activity_places.each do |activity_place| %>
+            <%= link_to "/activity_places/#{activity_place.id}/edit" do %>
+                <li> - <%= activity_place.Name %> &nbsp;&nbsp;&nbsp; <%= activity_place.Address %>
+            <% end %>
+        <% end %>
+    </ul>
+    <br>
+    <%= link_to "Créer un lieu", "activity_places/new" %>
+</div>
+
