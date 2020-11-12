@@ -4,8 +4,8 @@
         <%= f.input :titre, label: 'Titre' %>
         <%= f.input :description %>
         <%= f.input :image %>
-        <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
-        <%= f.association :activity, label_method: :title, value_method: :id, label: "Activité" %>
+        <%= f.association :patrimoine, collection: @accepted_patrimoines, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
+        <%= f.association :activity, collection: @accepted_activities, label_method: :title, value_method: :id, label: "Activité" %>
          <%= f.simple_fields_for :contributors do |contributor_form| %>
             <%= contributor_form.input :firstname, label: "Prénom", required: true %>
             <%= contributor_form.input :lastname, label: "Nom", required: true %>

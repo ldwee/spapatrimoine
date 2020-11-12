@@ -50,7 +50,7 @@ class PatrimoinesController < ApplicationController
     def destroy
       @patrimoine = Patrimoine.find(params[:id])
       @patrimoine.destroy
-      redirect_to patrimoines_path
+      redirect_to "/admin/patrimoines"
     end
 
     def show
