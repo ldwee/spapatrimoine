@@ -7,10 +7,12 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
+    @accepted_patrimoines = Patrimoine.where(status: "acceptée")
   end
 
   def create
     @activity = Activity.new(activity_params)
+    @accepted_patrimoines = Patrimoine.where(status: "acceptée")
     @activity.status = "attente"
     
     @contributor = Contributor.find_by(email: params[:activity][:contributors][:email])
@@ -31,7 +33,7 @@ class ActivitiesController < ApplicationController
   
   def edit
     @activity = Activity.find(params[:id])
-  #  @accepted_patrimoines = Patrimoine.where(status: "acceptée")
+    @accepted_patrimoines = Patrimoine.where(status: "acceptée")
     @activity_types = ActivityType.all
     @activity_places = ActivityPlace.all
   end
@@ -48,7 +50,7 @@ class ActivitiesController < ApplicationController
           flash[:notice] = 'Bien fait, merci'
           redirect_to "/admin/activités"
         else
-          flash[:notice] = 'Pour accepter une activité, complétez la date, le lieu et le type svp'
+          flash[:notice] = "Avant d'accepter une activité, complétez la date, le lieu et le type svp"
           render :edit
         end
       end
@@ -64,13 +66,13 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
-    redirect_to activities_path
+    redirect_to "/admin/activités"
   end
 
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :image, :status, :date, :activity_type_id, :activity_place_id, :contributor_id)
+    params.require(:activity).permit(:title, :description, :image, :status, :date, :patrimoine_id, :activity_type_id, :activity_place_id, :contributor_id)
   end
 
   def contributor_params

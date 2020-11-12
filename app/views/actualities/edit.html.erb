@@ -11,8 +11,8 @@
         <%= f.input :titre, label: 'Titre' %>
         <%= f.input :description %>
         <%= f.input :image %>
-        <%= f.input :activity_id, collection: @activities, label: "Activité" %>
-        <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
+        <%= f.association :activity, collection: @accepted_activities, label: "Activité" %>
+        <%= f.association :patrimoine, collection: @accepted_patrimoines, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
         <%= f.input :status, collection: ["attente", "acceptée", "refusée", "classée"] %> 
         <%= f.submit 'Soumettre' %>  
     <% end %>
