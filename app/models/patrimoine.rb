@@ -7,4 +7,5 @@ class Patrimoine < ApplicationRecord
     validates :localisation, presence: true
     validates :notice, presence: true
     validates :etat, presence: true
+    validates :status, presence: true, inclusion: { in: %w(attente acceptée refusée)}
 end

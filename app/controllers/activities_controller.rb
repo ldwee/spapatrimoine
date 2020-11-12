@@ -31,15 +31,27 @@ class ActivitiesController < ApplicationController
   
   def edit
     @activity = Activity.find(params[:id])
+  #  @accepted_patrimoines = Patrimoine.where(status: "acceptée")
     @activity_types = ActivityType.all
     @activity_places = ActivityPlace.all
   end
 
   def update
     @activity = Activity.find(params[:id])
+    @accepted_patrimoines = Patrimoine.where(status: "acceptée")
     if @activity.update(activity_params)
-      flash[:notice] = 'Bien fait, merci'
-      redirect_to "/admin/activités"
+      if @activity.status != "acceptée" 
+        flash[:notice] = 'Bien fait, merci'
+        redirect_to "/admin/activités"
+      else
+        if @activity.date.nil? == false && @activity.activity_place_id.nil? == false && @activity.activity_type_id.nil? == false
+          flash[:notice] = 'Bien fait, merci'
+          redirect_to "/admin/activités"
+        else
+          flash[:notice] = 'Pour accepter une activité, complétez la date, le lieu et le type svp'
+          render :edit
+        end
+      end
     else
       render :edit
     end
