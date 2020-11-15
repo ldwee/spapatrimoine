@@ -9,7 +9,7 @@
          <%= f.simple_fields_for :contributors do |contributor_form| %>
             <%= contributor_form.input :firstname, label: "Prénom", required: true %>
             <%= contributor_form.input :lastname, label: "Nom", required: true %>
-            <%= contributor_form.input :email, label: "Email", placeholder: "user@domain.com", required: true %>        
+            <%= contributor_form.input :email, label: "Email", placeholder: "albin.body@spapatrimoine.be", required: true %>        
         <% end %>
         <%= f.submit 'Soumettre' %>
     <% end %>
