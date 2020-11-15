@@ -37,6 +37,9 @@ gem 'simple_form'
 # Gems for testing
 gem 'simplecov', require: false, group: :test
 
+# Cloudinary
+gem 'cloudinary', '~> 1.16.0'
+
 
 group :development, :test do
   gem 'pry-rails'
