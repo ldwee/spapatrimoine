@@ -6,7 +6,7 @@
     <% @patrimoines.each do |patrimoine| %>
         <%= link_to "/patrimoines/#{patrimoine.id}" do %>
             <div class="card-product">
-                <img src="<%= patrimoine.illustration %>" />
+                <%= cl_image_tag patrimoine.images.first.key, crop: :fill if patrimoine.images.attached? %>
                 <div class="card-product-infos">
                     <h2><%= patrimoine.libelle %></h2>
                     <p><%= patrimoine.notice %></p>
