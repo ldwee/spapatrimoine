@@ -1,17 +1,32 @@
-<div class="w-10/12 mx-auto">
-    <h1>Nos activités</h1>
-    <br>
-    <%= link_to "Proposez une nouvelle activité", "/activités/new" %>
-
-    <% @activities.each do |activity| %>
-        <%= link_to "/activités/#{activity.id}" do %>
-            <div class="card-product">
-                <img src="<%= activity.image %>" />
-                <div class="card-product-infos">
-                    <h2><%= activity.title %></h2>
-                    <p><%= activity.description %></p>
-                </div>
+<div class="container p-3">
+    <div class="row align-items-center">
+        <div class="mx-auto col-12 col-lg-8 "  >
+            <h1>Nos activités</h1>
+            <br>
+            <% @activities.each do |activity| %>
+                <%= link_to "/activités/#{activity.id}" do %>
+                    <div class="card-product">
+                        <img src="<%= activity.image %>" />
+                        <div class="card-product-infos">
+                            <h1><%= activity.activity_type.title %></h1>
+                            <h2><%= activity.title %></h2>
+                            <p><%= activity.date %></p>
+                            <p><%= activity.activity_place.Name %></p>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="col-12 col-lg-4 p">
+            <h1> Le patrimoine spadois à besoin de vous!</h1>  
+            <br>
+            <p> Participez aux activités de l'asbl Spa Patrimoine en proposant vous-même une activité : une visite guidée, une promenade thémathique, une conférence,...tout est possible </p>
+            <br>
+            <p> Cliquez ci-dessous et soumettez-nous votre proposition.  Nous revenons vers vous dans les meilleurs délais </p>
+            <br>
+            <div class="btn btn-primary">
+                <%= link_to "Proposez une nouvelle activité", "/activités/new" %>
             </div>
-        <% end %>
-    <% end %>
+        </div>
+    </div>
 </div>
