@@ -1,0 +1,14 @@
+#map {
+  height: calc(100vh - 122px) !important;
+  width: 50% !important;
+  position: absolute;
+  top: 66px;
+  right: 0;
+  .mapboxgl-canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100% !important;
+    width: auto !important;
+  }
+}

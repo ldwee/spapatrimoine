@@ -15,9 +15,12 @@ table = CSV.parse(File.read('/Users/loic/Desktop/Spapatrimoine/spapatrimoine/pat
 # libelle / illustrations / localisation / inscription / categorie / notice / etat / endangered / status / ipic
 
 table.each do |row|
+  p 'New row'
+  next if Patrimoine.find_by(ipic: row['fiches_nr'])
+
   patrimoine = Patrimoine.new(
-    libelle: row['fiches_nr'],
-    localisation: row['localisation'],
+    libelle: row['libéllé(s)'],
+    localisation: row['localisation'].sub("Adresse principale : ", ''),
     inscription: row['inscription'],
     categorie: row['catégorie(s)'],
     notice: row['notice'],
@@ -40,7 +43,9 @@ table.each do |row|
   patrimoine.status = 'acceptée'
 
   if patrimoine.save!
-    p "Patrimoine saved - #{row['fiches_nr']}"
+    geo = Geocoder.search(patrimoine.localisation)
+    patrimoine.update(latitude: nil, longitude: nil) if (geo.length > 0 && geo.first.country_code != 'be')
+    p "Patrimoine saved - #{row['fiches_nr']} (#{patrimoine.longitude} / #{patrimoine.latitude})"
   else
     p "Failed to save"
   end

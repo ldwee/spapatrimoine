@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_175945) do
+ActiveRecord::Schema.define(version: 2020_11_16_070700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(version: 2020_11_12_175945) do
 
   create_table "patrimoines", force: :cascade do |t|
     t.string "libelle"
-    t.text "illustration"
     t.string "localisation"
     t.string "inscription"
     t.string "categorie"
@@ -104,6 +103,8 @@ ActiveRecord::Schema.define(version: 2020_11_12_175945) do
     t.string "status"
     t.string "ipic"
     t.bigint "contributor_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["contributor_id"], name: "index_patrimoines_on_contributor_id"
   end
 
