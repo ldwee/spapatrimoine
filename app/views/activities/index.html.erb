@@ -1,5 +1,5 @@
 <div class="container p-3 m-16">
-    <div class="row align-items-center">
+    <div class="row justify-content-evenly">
         <div class="mx-auto col-12 col-lg-8 "  >
             <div class="text-center">
                 <h1>Nos activités</h1>
@@ -21,15 +21,17 @@
                 <% end %>
             </div>
         </div>
-        <div class="appeal col-12 col-lg-4 p">
-            <h1> Le patrimoine spadois à besoin de vous!</h1>  
-            <br>
-            <p> Participez aux activités de l'asbl Spa Patrimoine en proposant vous-même une activité : une visite guidée, une promenade thémathique, une conférence,...tout est possible </p>
-            <br>
-            <p> Cliquez ci-dessous et soumettez-nous votre proposition.  Nous revenons vers vous dans les meilleurs délais </p>
-            <br>
-            <div class="btn btn-primary">
-                <%= link_to "Proposez une nouvelle activité", "/activités/new" %>
+        <div class="col-12 col-lg-4 ">
+            <div class ="appel">
+                <h1> Le patrimoine spadois à besoin de vous!</h1>  
+                <br>
+                <p> Participez aux activités de l'asbl Spa Patrimoine en proposant vous-même une activité : une visite guidée, une promenade thémathique, une conférence,...tout est possible </p>
+                <br>
+                <p> Cliquez ci-dessous et soumettez-nous votre proposition.  Nous revenons vers vous dans les meilleurs délais </p>
+                <br>
+                <div class="btn btn-primary">
+                    <%= link_to "Proposez une nouvelle activité", "/activités/new" %>
+                </div>
             </div>
         </div>
     </div>
