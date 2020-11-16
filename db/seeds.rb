@@ -9,8 +9,8 @@
 require 'csv'
 require "open-uri"
 
-x = CSV.read('/Users/loic/Desktop/Spapatrimoine/spapatrimoine/patrimoine.csv')
-table = CSV.parse(File.read('/Users/loic/Desktop/Spapatrimoine/spapatrimoine/patrimoine.csv'), headers: true)
+x = CSV.read('/home/ldwee/sites/spapatrimoine/patrimoine.csv')
+table = CSV.parse(File.read('/home/ldwee/sites/spapatrimoine/patrimoine.csv'), headers: true)
 
 # libelle / illustrations / localisation / inscription / categorie / notice / etat / endangered / status / ipic
 
