@@ -40,6 +40,10 @@ gem 'simplecov', require: false, group: :test
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
 
+# Geocoding
+gem 'geocoder'
+
+
 
 group :development, :test do
   gem 'pry-rails'

@@ -1,4 +1,7 @@
 class Patrimoine < ApplicationRecord
+  geocoded_by :localisation
+  after_validation :geocode, if: :will_save_change_to_localisation?
+
   belongs_to :contributor
 
   has_many :activities

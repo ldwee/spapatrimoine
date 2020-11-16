@@ -4,6 +4,13 @@ class PatrimoinesController < ApplicationController
 
     def index
       @patrimoines = Patrimoine.where(status:"acceptée")
+
+      @markers = @patrimoines.geocoded.map do |patrimoine|
+        {
+          lat: patrimoine.latitude,
+          lng: patrimoine.longitude
+        }
+      end
     end
 
     def new
