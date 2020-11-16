@@ -1,17 +1,23 @@
 .patrimoine-cards {
-  display: flex;
-  flex-wrap: wrap;
+  //code Loic
+  //display: flex;
+  //flex-wrap: wrap;
+  //width: 60%;
+  //height: calc(100vh - 135px);
+  //overflow: scroll;
   width: 60%;
-  height: calc(100vh - 135px);
-  overflow: scroll;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
 }
 
 .patrimoine-card {
   position: relative;
   background-size: cover;
   background-position: center;
-  width: 33%;
-  height: 150px;
+  //width: 33%;
+  //height: 150px;
   border-radius: 1px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -21,7 +27,7 @@
   color: white;
   font-weight: bolder;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-  margin: 20px;
+  margin: 8px;
   img {
     height: 150px;
     width: 100%;
