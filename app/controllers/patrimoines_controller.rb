@@ -20,6 +20,8 @@ class PatrimoinesController < ApplicationController
     def create
       @patrimoine = Patrimoine.new(patrimoine_params)
       @patrimoine.status = "attente"
+     p "---------------------------"
+      p patrimoine_params
 
       # check if contributor already exists
       @contributor = Contributor.find_by(email: params[:patrimoine][:contributors][:email])
@@ -67,7 +69,7 @@ class PatrimoinesController < ApplicationController
     private
 
     def patrimoine_params
-      params.require(:patrimoine).permit(:libelle, :illustration, :localisation, :inscription, :categorie, :notice, :etat, :endangered, :status, :ipic, :contributor_id)
+      params.require(:patrimoine).permit(:libelle, :images, :localisation, :inscription, :categorie, :notice, :etat, :endangered, :status, :ipic, :contributor_id)
     end
 
     def contributor_params

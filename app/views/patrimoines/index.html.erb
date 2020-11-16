@@ -7,11 +7,11 @@
       <% @patrimoines.each do |patrimoine| %>
           <% next if !patrimoine.images.attached?%>
           <div class="patrimoine-card">
-            <h2><%= patrimoine.libelle %></h2>
             <%= link_to "/patrimoines/#{patrimoine.id}" do %>
               <div>
                 <%= cl_image_tag patrimoine.images.first.key, crop: :fill if patrimoine.images.attached? %>
               </div>
+             <h2><%= patrimoine.libelle %></h2>
             <% end %>
           </div>
       <% end %>

@@ -2,7 +2,7 @@
     <h2>Proposez un patrimoine</h2>
     <%= simple_form_for @patrimoine do |f| %>
         <%= f.input :libelle, label: 'Libéllé' %>
-        <%= f.input :illustration, label: "Illustration(s)" %>
+        <%= f.input :images, as: :file, input_html: { multiple: true } %>
         <%= f.input :localisation, label: "Localisation" %>
         <%= f.input :inscription, label: "Inscription" %>
         <%= f.input :categorie, collection: ["Défensif", "Economique", "Domestique", "Funéraire", "Philosophique", "Public", "Technique"], label: "Catégorie" %>
