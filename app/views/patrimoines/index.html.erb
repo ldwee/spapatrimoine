@@ -1,25 +1,27 @@
-<div class="w-10/12 mx-auto">
+<div class="w-10/12 mx-auto p-3 mt-16 mb-0">
     <h1>Le patrimoine Spadois</h1>
     <br>
-    <%= link_to "Proposez une nouveau Patrimoine", "/patrimoines/new" %>
 
-    <div id="map"
-      style="width: auto; height: 100vh;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    >
     </div>
     <div class='patrimoine-cards'>
       <% @patrimoines.each do |patrimoine| %>
           <% next if !patrimoine.images.attached?%>
           <div class="patrimoine-card">
-            <h2><%= patrimoine.libelle %></h2>
             <%= link_to "/patrimoines/#{patrimoine.id}" do %>
               <div>
                 <%= cl_image_tag patrimoine.images.first.key, crop: :fill if patrimoine.images.attached? %>
               </div>
+             <h2><%= patrimoine.libelle %></h2>
             <% end %>
           </div>
       <% end %>
+    <div id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    >
     </div>
+
 </div>
+    <div class="appel"> 
+      <%= link_to "Proposez une nouveau Patrimoine", "/patrimoines/new" %>
+    </div>
