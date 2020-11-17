@@ -1,8 +1,9 @@
-<div class="w-10/12 mx-auto p-3 mt-16 mb-0">
-
+<div class="w-10/12 mx-auto p-3 m-16">
   <div class= "row">
     <div class= "col-12 col-lg-8">
-      <h1>Le patrimoine Spadois</h1>
+      <div class="text-center">
+        <h1>Le patrimoine Spadois</h1>
+      </div>
       <br>
         <div class='patrimoine-cards'>
           <% @patrimoines.each do |patrimoine| %>
@@ -18,15 +19,25 @@
           <% end %>
         </div>
     </div>
-    <div class= "col-12 col-lg-4">
-      <div class= "map-appel">
+    <div class="col-12 col-lg-4">
+      <div class="sticky-top">
         <div id="map"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         >
         </div>
-        <div class="appel"> 
-          <%= link_to "Proposez une nouveau Patrimoine", "/patrimoines/new" %>
+        <br>
+        <br>
+        <div class="appel">  
+          <h1> Le patrimoine spadois à besoin de VOUS!</h1>  
+          <br>
+          <p> Contribuez à l'inventaire du patrimoine spadois en proposant vous-même un patrimoine : un petit patrimoine, une villa, une promenade,...tout est possible </p>
+          <br>
+          <p> Cliquez ci-dessous et soumettez-nous votre proposition.  Nous revenons vers vous dans les meilleurs délais </p>
+          <br>
+          <div class="btn btn-primary">
+            <%= link_to "Proposez une nouveau Patrimoine", "/patrimoines/new" %>
+          </div>
         </div>
       </div>
     </div>
