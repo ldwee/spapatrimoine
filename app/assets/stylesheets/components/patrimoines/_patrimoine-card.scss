@@ -30,7 +30,7 @@
   position: relative;
   background-size: cover;
   background-position: center;
-  //width: 33%;
+  //max-width: 100%;
   //height: 150px;
   border-radius: 1px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -43,7 +43,7 @@
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   margin: 8px;
   img {
-    height: 150px;
+    max-height: 100%;
     width: 100%;
   }
   h2 {
