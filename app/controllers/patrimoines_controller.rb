@@ -6,9 +6,15 @@ class PatrimoinesController < ApplicationController
       @patrimoines = Patrimoine.where(status:"acceptée")
 
       @markers = @patrimoines.geocoded.map do |patrimoine|
+        key = ''
+        if patrimoine.images.attached?
+          key = patrimoine.images.first.key
+        end
         {
           lat: patrimoine.latitude,
-          lng: patrimoine.longitude
+          lng: patrimoine.longitude,
+          name: patrimoine.libelle,
+          image: key
         }
       end
     end

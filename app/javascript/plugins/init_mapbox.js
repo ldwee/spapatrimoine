@@ -25,10 +25,16 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     console.log(markers);
     markers.forEach((marker) => {
+      let popup;
+      if (marker.image != '') {
+        popup = `<img src=\'https://res.cloudinary.com/dkekughgs/image/upload/c_fill/v1/spapatrimoine/${marker.image}\'/>`
+      } else {
+        popup = `<h2>${marker.name}</h2>`
+      }
       new mapboxgl.Marker()
         .setLngLat([marker.lng, marker.lat])
         .setPopup(new mapboxgl.Popup({offset: 25}) // add popups
-        .setHTML("<h2>Hello</h2>"))
+        .setHTML(popup))
         .addTo(map);
     });
 
