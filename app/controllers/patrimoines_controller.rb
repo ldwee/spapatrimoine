@@ -14,6 +14,7 @@ class PatrimoinesController < ApplicationController
           lat: patrimoine.latitude,
           lng: patrimoine.longitude,
           name: patrimoine.libelle,
+          id: patrimoine.id,
           image: key
         }
       end
