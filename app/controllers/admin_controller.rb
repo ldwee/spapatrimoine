@@ -7,6 +7,7 @@ class AdminController < ApplicationController
 
   def activities
     @pending_activities = Activity.where(status: "attente")
+    @stock_activities = Activity.where(status: "stock")
     @accepted_activities = Activity.where(status: "acceptée")
     @refused_activities = Activity.where(status: "refusée")
   end

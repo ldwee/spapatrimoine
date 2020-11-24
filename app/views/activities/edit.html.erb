@@ -17,8 +17,8 @@
 <%#      <%= f.input :activity_place_id, collection: @activity_places, label_method: :Name, value_method: :id, label: "Lieu" %>
       <%= f.association :activity_place, label_method: :Name, value_method: :id, label: "Lieu (nécessaire pour accepter)" %>
  <%#     <%= f.association :patrimoine, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
-   <%= f.association :patrimoine, collection: @accepted_patrimoines, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
-      <%= f.input :status, collection: ["attente", "acceptée", "refusée"] %> 
+      <%= f.association :patrimoine, collection: @accepted_patrimoines, label_method: :libelle, value_method: :id, label: "Patrimoine" %>
+      <%= f.input :status, collection: ["attente", "stock", "acceptée", "refusée"] %> 
       <%= f.submit 'Soumettre' %>
 
   <% end %>
