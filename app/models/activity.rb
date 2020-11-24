@@ -7,5 +7,5 @@ class Activity < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :status, presence: true, inclusion: { in: %w(attente acceptée refusée)}
+  validates :status, presence: true, inclusion: { in: %w(attente stock acceptée refusée)}
 end

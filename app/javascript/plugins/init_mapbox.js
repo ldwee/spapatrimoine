@@ -27,8 +27,7 @@ const initMapbox = () => {
     markers.forEach((marker) => {
       let popup;
       if (marker.image != '') {
-        popup =
-        `<a href=\"/patrimoines/${marker.id}\"><img src=\'https://res.cloudinary.com/dkekughgs/image/upload/c_fill/v1/spapatrimoine/${marker.image}\'/></a>`
+        popup = `<img src=\'https://res.cloudinary.com/dzqmxfcgf/image/upload/c_fill/v1/spapatrimoine/${marker.image}\'/>`
       } else {
         popup =
         `<a href=\"/patrimoines/${marker.id}\"><h2>${marker.name}</h2></a>`
