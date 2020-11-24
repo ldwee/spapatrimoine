@@ -29,8 +29,11 @@ const initMapbox = () => {
       if (marker.image != '') {
         popup = `<img src=\'https://res.cloudinary.com/dzqmxfcgf/image/upload/c_fill/v1/spapatrimoine/${marker.image}\'/>`
       } else {
-        popup = `<h2>${marker.name}</h2>`
+        popup =
+        `<a href=\"/patrimoines/${marker.id}\"><h2>${marker.name}</h2></a>`
       }
+
+
       new mapboxgl.Marker()
         .setLngLat([marker.lng, marker.lat])
         .setPopup(new mapboxgl.Popup({offset: 25}) // add popups
