@@ -3,8 +3,7 @@ class PatrimoinesController < ApplicationController
     before_action :authenticate_user!, except: [:index, :new, :create, :show]
 
     def index
-      @patrimoines = Patrimoine.where(status:"acceptée")
-
+      @patrimoines = Patrimoine.where(status:"acceptée", has_image: true)
       @markers = @patrimoines.geocoded.map do |patrimoine|
         key = ''
         if patrimoine.images.attached?
