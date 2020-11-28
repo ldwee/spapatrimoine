@@ -9,10 +9,13 @@
 require 'csv'
 require "open-uri"
 
-x = CSV.read('/home/ldwee/sites/spapatrimoine/patrimoine.csv')
-table = CSV.parse(File.read('/home/ldwee/sites/spapatrimoine/patrimoine.csv'), headers: true)
+x = CSV.read('patrimoine.csv')
+table = CSV.parse(File.read('patrimoine.csv'), headers: true)
 
 # libelle / illustrations / localisation / inscription / categorie / notice / etat / endangered / status / ipic
+
+# creating the 'admin' contributor
+Contributor.create(firstname: 'Spa', lastname: 'Patrimoine', email: 'info@spapatrimoine.be')
 
 table.each do |row|
   p 'New row'
@@ -25,7 +28,8 @@ table.each do |row|
     categorie: row['catégorie(s)'],
     notice: row['notice'],
     etat: row['état'],
-    ipic: row['fiches_nr']
+    ipic: row['fiches_nr'],
+    has_image: false
   )
 
   images = row['illustration(s)']
@@ -39,12 +43,13 @@ table.each do |row|
     patrimoine.images.attach(io: file, filename: "#{row['fiches_nr']} - #{index + 1}.jpg", content_type: 'image/jpg')
   end
 
-  patrimoine.contributor = Contributor.find(1)
+  patrimoine.contributor = Contributor.find_by(email: 'info@spapatrimoine.be')
   patrimoine.status = 'acceptée'
 
   if patrimoine.save!
     geo = Geocoder.search(patrimoine.localisation)
     patrimoine.update(latitude: nil, longitude: nil) if (geo.length > 0 && geo.first.country_code != 'be')
+    patrimoine.update(has_image: true) if patrimoine.images.attached?
     p "Patrimoine saved - #{row['fiches_nr']} (#{patrimoine.longitude} / #{patrimoine.latitude})"
   else
     p "Failed to save"

@@ -2,7 +2,6 @@ import mapboxgl from 'mapbox-gl';
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
-
   const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
     markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
@@ -22,12 +21,15 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
+    const cloudinaryLink = window._rails_env;
     const markers = JSON.parse(mapElement.dataset.markers);
-    console.log(markers);
     markers.forEach((marker) => {
       let popup;
       if (marker.image != '') {
-        popup = `<img src=\'https://res.cloudinary.com/dzqmxfcgf/image/upload/c_fill/v1/spapatrimoine/${marker.image}\'/>`
+        popup =
+        `<a href=\"/patrimoines/${marker.id}\">
+          <img class="mapbox-images" src=\'https://res.cloudinary.com/${cloudinaryLink}/image/upload/c_fill/v1/spapatrimoine/${marker.image}\'/>
+        </a>`
       } else {
         popup =
         `<a href=\"/patrimoines/${marker.id}\"><h2>${marker.name}</h2></a>`
