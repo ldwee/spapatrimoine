@@ -1,15 +1,24 @@
-<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag "https://scontent.flgg1-1.fna.fbcdn.net/v/t1.0-9/106080151_152466149695900_5994045805424650840_n.png?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=LC-328f8aEEAX_xAUCB&_nc_ht=scontent.flgg1-1.fna&oh=8d145be765e101b858246e9e5e98bba5&oe=5FD4516E" %>
+    <%= image_tag("logo.jpeg") %>
   <% end %>
 
-  <%= link_to "Activités", "/activités" %>
-  <%= link_to "Présentation", "/about"%>
-  <%= link_to "Actualités", "/actualités" %>
-  <%= link_to "Patrimoines", "/patrimoines" %>
+  <div class="flex flex-col w-100 text-white">
+    <div class="text-center text-xl mb-2">
+      <h1>Spa Patrimoine</h1>
+    </div>
 
+    <div class="flex justify-between mx-10">
+      <%= link_to "Activités", "/activités" %>
+      <%= link_to "Présentation", "/about"%>
+      <%= link_to "Actualités", "/actualités" %>
+      <%= link_to "Patrimoine Spadois", "/patrimoines" %>
+      <%= link_to "Projets", "/" %>
+      <%= link_to "Propriétaires", "/" %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
 </div>

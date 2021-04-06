@@ -1,11 +1,11 @@
-<div class="navbar fixed-bottom navbar-expand-sm navbar-light navbar-lewagon footer">
+<div class="navbar-expand-sm navbar-light navbar-lewagon flex justify-end">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="">
       <% if user_signed_in? %>
         <li class="nav-item dropdown dropup">
           <%= image_tag "https://eu.ui-avatars.com/api/?name=#{current_user.firstname}+#{current_user.lastname}&rounded=true", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
