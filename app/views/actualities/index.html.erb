@@ -1,17 +1,38 @@
 <div class="w-10/12 mx-auto p-3 m-16">
-    <h1>Les actualités</h1>
-    <br>
-    <%= link_to "Proposez une nouvelle actualité", "/actualités/new" %>
-
-    <% @actualities.each do |actuality| %>
-        <%= link_to "/actualités/#{actuality.id}" do %>
-            <div class="card-product">
-                <img src="<%= actuality.image %>" />
-                <div class="card-product-infos">
-                    <h2><%= actuality.titre %></h2>
-                    <p><%= actuality.description %></p>
+    <div class="row">
+        <div class="mx-auto col-12 col-lg-8 "  >
+            <div class="text-center">
+                <h1>Les actualités</h1>
+            </div>
+            <br>
+            <div>
+                <% @actualities.each do |actuality| %>
+                    <%= link_to "/actualités/#{actuality.id}" do %>
+                        <div class="card-product">
+                            <img src="<%= actuality.image %>" />
+                            <div class="card-product-infos">
+                                <h2><%= actuality.titre %></h2>
+                                <p><%= actuality.description %></p>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+       <div class="col-12 col-lg-4">
+            <div class="appel">
+                <h1> Le patrimoine spadois à besoin de VOUS!</h1>  
+                <br>
+                <p> Participez aux activités de l'asbl Spa Patrimoine en proposant vous-même une actualité : une découverte, un projet autour d'un patrimoine,...tout est possible </p>
+                <br>
+                <p> Cliquez ci-dessous et soumettez-nous votre proposition.  Nous revenons vers vous dans les meilleurs délais </p>
+                <br>
+                <div class="btn btn-primary">
+                     <%= link_to "Proposez une nouvelle actualité", "/actualités/new" %>
                 </div>
             </div>
-        <% end %>
-    <% end %>
-</div>
+        </div>
+    </div>
+</div>       
+
+            
