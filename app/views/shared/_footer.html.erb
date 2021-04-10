@@ -1,3 +1,7 @@
-<div class="flex justify-end bg-gray-600 p-2 text-white">
-  <p>Admin</p>
-</div>
+<nav class="flex-shrink-0 flex justify-end bg-gray-600 p-2 text-white">
+  <%=
+    link_to "Admin",
+    new_user_session_path,
+    class: "border rounded px-2 hover:text-white hover:no-underline hover:text-gray-300"
+  %>
+</nav>
