@@ -3,7 +3,12 @@ class AdminController < ApplicationController
     @nbr_activities = Activity.where(status: "attente").count
     @nbr_actualities = Actuality.where(status: "attente").count
     @nbr_patrimoines = Patrimoine.where(status: "attente").count
+    activities
+    actualities
+    patrimoines
   end
+
+  private
 
   def activities
     @pending_activities = Activity.where(status: "attente")
@@ -24,6 +29,5 @@ class AdminController < ApplicationController
     @accepted_patrimoines = Patrimoine.where(status: "acceptée")
     @refused_patrimoines = Patrimoine.where(status: "refusée")
   end
-
 
 end

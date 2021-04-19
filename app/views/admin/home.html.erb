@@ -1,17 +1,45 @@
-<div class="w-10/12 mx-auto p-3 m-16">
-    <h1>Admin#home</h1>
-    <%= link_to "Activités (#{@nbr_activities})", "/admin/activités" %>
-    <br>
-    <%= link_to "Actualités (#{@nbr_actualities})", "/admin/actualités" %>
-    <br>
-    <%= link_to "Patrimoines (#{@nbr_patrimoines})", "/admin/patrimoines" %>
-    <br>
-    <%= link_to "Types d'activité", "/activity_types" %>
-    <br>
-    <%= link_to "Lieux d'activité", "/activity_places" %>
-    <br>
-    <%= link_to "Thèmes", "/themes" %>
-    <br>
-    <%= link_to "Contributeurs", "/contributors" %>
+<div class="container mt-4">
+  <h2 class="text-2xl mb-2">Administration</h1>
 
+  <ul class="nav nav-tabs border-blue-500" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="activities-tab" data-bs-toggle="tab" data-bs-target="#activities" type="button" role="tab" aria-controls="activities" aria-selected="true">
+        <%= "Activités (#{@nbr_activities})" %>
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="actualities-tab" data-bs-toggle="tab" data-bs-target="#actualities" type="button" role="tab" aria-controls="actualities" aria-selected="false"><%= "Actualités (#{@nbr_actualities})" %></button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="patrimoines-tab" data-bs-toggle="tab" data-bs-target="#patrimoines" type="button" role="tab" aria-controls="patrimoines" aria-selected="false"><%= "Patrimoines (#{@nbr_patrimoines})" %></button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="activity_types-tab" data-bs-toggle="tab" data-bs-target="#activity_types" type="button" role="tab" aria-controls="activity_types" aria-selected="false">Types d'activité</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="activity_places-tab" data-bs-toggle="tab" data-bs-target="#activity_places" type="button" role="tab" aria-controls="activity_places" aria-selected="false">Lieux d'activité</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="themes-tab" data-bs-toggle="tab" data-bs-target="#themes" type="button" role="tab" aria-controls="themes" aria-selected="false">Thèmes</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contributors-tab" data-bs-toggle="tab" data-bs-target="#contributors" type="button" role="tab" aria-controls="contributors" aria-selected="false">Contributeurs</button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="activities" role="tabpanel" aria-labelledby="activities-tab">
+      <%= render "activities" %>
+    </div>
+    <div class="tab-pane fade" id="actualities" role="tabpanel" aria-labelledby="actualities-tab">
+      <%= render "actualities" %>
+    </div>
+    <div class="tab-pane fade" id="patrimoines" role="tabpanel" aria-labelledby="patrimoines-tab">
+      <%= render "patrimoines" %>
+    </div>
+    <div class="tab-pane fade" id="activity_types" role="tabpanel" aria-labelledby="activity_types-tab">foobar</div>
+    <div class="tab-pane fade" id="activity_places" role="tabpanel" aria-labelledby="activity_places-tab">foobar</div>
+    <div class="tab-pane fade" id="themes" role="tabpanel" aria-labelledby="themes-tab">foobar</div>
+    <div class="tab-pane fade" id="contributors" role="tabpanel" aria-labelledby="contributors-tab">foobar</div>
+  </div>
 </div>
